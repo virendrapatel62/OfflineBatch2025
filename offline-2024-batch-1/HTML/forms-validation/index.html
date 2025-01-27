@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      table {
+        width: 100%;
+      }
+      table,
+      td {
+        border-collapse: collapse;
+        border: 1px solid gray;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" method="GET">
+      <div>
+        <div>
+          <label>Email</label>
+          <input type="email" />
+        </div>
+
+        <div>
+          <label for="">Name</label>
+          <input type="text" required minlength="4" maxlength="10" />
+        </div>
+
+        <div>
+          <label for="">Age</label>
+          <input type="number" min="10" max="60" required />
+        </div>
+
+        <div>
+          <label for="">Year</label>
+          <input type="number" min="1900" max="2025" required />
+        </div>
+
+        <input type="date" name="" id="" />
+        <input type="datetime" name="" id="" />
+        <input type="datetime-local" name="" id="" />
+
+        <input type="week" />
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+
+    <br />
+
+    <div>
+      <table>
+        <tr>
+          <td rowspan="2">1</td>
+          <td>3</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td rowspan="2" colspan="2">5</td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td>P1</td>
+          <td>10</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>P1</td>
+          <td>10</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>P1</td>
+          <td>10</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>P1</td>
+          <td>10</td>
+          <td>100</td>
+        </tr>
+
+        <tr>
+          <td colspan="2">Total</td>
+          <td>90398</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
