@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elements</title>
+  </head>
+  <body>
+    <h1>Elements Examples</h1>
+
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere minima
+    </p>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quos
+    </p>
+
+    <p>Lorem, ipsum dolor.</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, repellendus!
+    </p>
+
+    <p>Lorem, ipsum.</p>
+
+    <div>
+      <h1>Heading inside div</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste iure
+        labore vero ab aperiam delectus eligendi. Eum eius voluptatibus commodi,
+        numquam illo doloremque provident optio eaque, sit aliquid amet
+        obcaecati.
+      </p>
+    </div>
+    <hr />
+
+    <div>
+      <h2>Ordered List</h2>
+
+      <ol start="100">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+      </ol>
+    </div>
+
+    <hr />
+
+    <div>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+
+      <ol>
+        <li>
+          <div>
+            <ul>
+              <li>Nested List Item1</li>
+              <li>Nested List Item2</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div>
+            <ul>
+              <li>Nested List Item1</li>
+              <li>Nested List Item2</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <div>
+      <table border="1" width="100%">
+        <thead>
+          <tr>
+            <th>Sno</th>
+            <th>Email</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>virend@gmail.com</td>
+            <td>virendra</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>harsh@gmail.com</td>
+            <td>harsh</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div>
+        <h1>Forms</h1>
+
+        <form method="get" action="https://google.com">
+          <!-- <input required type="email" /> -->
+          <input type="text" name="username" id="" />
+          <br />
+          <input type="password" name="password" id="" />
+          <br />
+          <input type="time" name="" id="" />
+
+          <div>
+            Password Text : <input class="passwordInput" type="password" />
+            <span class="showButton">👀</span>
+          </div>
+
+          <hr />
+          <div>
+            <select name="device">
+              <option value="1">Mac book</option>
+              <option value="2">Dell</option>
+              <option value="3">Asus</option>
+            </select>
+          </div>
+          <hr />
+
+          <div>
+            <label for="male">MALE</label>
+            <input id="male" type="radio" name="gender" value="m" />
+
+            <label for="female">FEMALE</label>
+            <input type="radio" id="female" name="gender" value="f" />
+          </div>
+
+          <hr />
+
+          <div>
+            <label for="">Dish : </label>
+
+            <br />
+            <label for="">Dosa</label>
+            <input type="checkbox" name="" id="" />
+
+            <br />
+            <label for="">IdLi</label>
+            <input type="checkbox" name="" id="" />
+
+            <br />
+            <label for="">Chatni</label>
+            <input type="checkbox" name="" id="" />
+          </div>
+
+          <hr />
+          <input type="reset" />
+
+          <input type="submit" />
+        </form>
+      </div>
+
+      <br />
+      <br />
+
+      <div>
+        <img
+          height="200"
+          width="auto"
+          src="https://plus.unsplash.com/premium_photo-1672329278706-35c6005ffb0a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        />
+      </div>
+
+      <div></div>
+    </div>
+  </body>
+</html>
+
+<style>
+  span {
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  const showButton = document.querySelector("span.showButton");
+  const input = document.querySelector("input.passwordInput");
+
+  showButton.addEventListener("click", function () {
+    const type = input.getAttribute("type");
+
+    if (type == "password") {
+      input.setAttribute("type", "text");
+    } else {
+      input.setAttribute("type", "password");
+    }
+  });
+</script>
