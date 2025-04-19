@@ -1,0 +1,16 @@
+.content {
+  display: flex;
+}
+
+.content aside {
+  background-color: rgba(128, 128, 128, 0.222);
+  color: black;
+  padding: 10px;
+
+  width: 1000px;
+}
+
+.content main {
+  background-color: rgba(104, 155, 183, 0.601);
+  padding: 10px;
+}

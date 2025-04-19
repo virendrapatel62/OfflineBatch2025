@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.8.4/axios.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>welcome to our Products</h1>
+
+      <div class="loader-div">
+        <img class="loader" src="./loading.png" alt="" />
+        <div>Loading you products... please wait.</div>
+      </div>
+
+      <div class="cards"></div>
+    </main>
+
+    <div class="templates" hidden>
+      <div class="card">
+        <img
+          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+          alt=""
+        />
+
+        <div class="card-body">
+          <div class="title">Dell 7869</div>
+
+          <div>
+            <span class="mrp">$900</span>
+            <span class="price">$155</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="./index.js"></script>
+</html>

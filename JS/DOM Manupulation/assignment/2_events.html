@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="cancel">Cancel</button>
+    <button class="done">Done</button>
+  </body>
+
+  <script>
+    const cancelButton = document.querySelector(".cancel");
+    const doneButton = document.querySelector(".done");
+
+    const handleClickEvent = (event) => {
+      const element = event.target;
+
+      const classes = element.classList;
+
+      const isDoneButton = classes.contains("done");
+      const isCancelButton = classes.contains("cancel");
+
+      console.log(classes);
+
+      if (isDoneButton) {
+        console.log("Done clicked");
+      }
+
+      if (isCancelButton) {
+        console.log("Cancel clicked");
+      }
+
+      //   if (event.target == cancelButton) {
+      //     console.log("Cancel clicked");
+      //   }
+      //   if (event.target == doneButton) {
+      //
+      //   }
+    };
+
+    cancelButton.addEventListener("click", handleClickEvent);
+    doneButton.addEventListener("click", handleClickEvent);
+
+    // button.onclick = onClick;
+  </script>
+</html>

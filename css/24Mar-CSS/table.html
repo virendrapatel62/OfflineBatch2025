@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      table {
+        border: 1px solid gray;
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      td,
+      th {
+        text-align: center;
+        border: 1px solid gray;
+      }
+
+      thead {
+        background-color: #ccc;
+        color: black;
+      }
+
+      #firstRowCol1 {
+        background-color: lightgreen;
+      }
+
+      .lastCol {
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>0</th>
+          <th>1</th>
+          <th>2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="firstRowCol1">0</td>
+          <td>1</td>
+          <td class="lastCol">2</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td class="lastCol">2</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td class="lastCol">2</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

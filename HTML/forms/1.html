@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="https://google.com" method="post">
+      <!-- domain.com/login?email=email%40gmail.com&password=passworddemo -->
+      <div>
+        <label for="email">Email Address : </label>
+        <input
+          name="email"
+          type="email"
+          id="email"
+          required
+          placeholder="example@gmail.com"
+        />
+      </div>
+
+      <br />
+      <div>
+        <label for="password">Password : </label>
+        <input
+          name="password"
+          type="password"
+          id="password"
+          required
+          placeholder="**********"
+        />
+      </div>
+
+      <hr />
+
+      <div>
+        <label>Select Food</label>
+        <div>
+          <label for="coffee">Coffee</label>
+          <input id="coffee" type="checkbox" name="food" value="Coffee" />
+        </div>
+
+        <div>
+          <label for="chai">Chai</label>
+          <input id="chai" type="checkbox" name="food" value="Chai" />
+        </div>
+      </div>
+
+      <hr />
+
+      <div>
+        <label>Select Gender</label>
+
+        <div>
+          <div>
+            <label for="m">Male</label>
+            <input required type="radio" id="m" name="gender" value="M" />
+          </div>
+
+          <div>
+            <label for="f">Female</label>
+            <input required type="radio" id="f" name="gender" value="F" />
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <div>
+        <input type="submit" value="Login input" />
+
+        <button>Login BUtton</button>
+
+        <input type="reset" value="Reset" />
+      </div>
+    </form>
+  </body>
+</html>
