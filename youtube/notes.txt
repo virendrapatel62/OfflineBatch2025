@@ -1,0 +1,9 @@
+// https://jsonplaceholder.typicode.com/users
+
+1. create a html page
+2. create a css file
+3. create a js file
+4. create a template for user card
+5. on load - fetch data (axios / fetch)
+6. render user data using template
+

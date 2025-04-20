@@ -1,0 +1,74 @@
+/* Basic reset and styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+
+  width: 80%;
+  margin: auto;
+}
+
+.users {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+/* User card container */
+.user {
+  width: 100%; /* Fixed width for the card */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensure contents don't overflow the rounded corners */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.user:hover {
+  transform: translateY(-5px);
+}
+
+/* Image container */
+.avatar {
+  width: 100%; /* Full width for the image */
+  height: 200px; /* Fixed height for the image */
+  overflow: hidden;
+
+  margin: 16px auto;
+}
+
+/* Styling for the image itself */
+.avatar img {
+  width: 100%; /* Ensure image stretches fully across */
+  height: 100%; /* Ensure image takes up all height of the container */
+  object-fit: contain; /* Ensure image covers the container proportionally */
+}
+
+/* Body section under the image */
+.body {
+  padding: 15px;
+}
+
+/* Username */
+.username {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Name styling */
+.name {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+/* Email styling */
+.email {
+  font-size: 12px;
+  color: #555;
+}
