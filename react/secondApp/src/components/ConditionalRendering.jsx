@@ -1,5 +1,5 @@
 function ConditionRendering() {
-  const age = 19;
+  const age = 10;
 
   // const drink =
   //   age >= 21 ? <h1>You will get Beer</h1> : <h1>You will get Juice</h1>;

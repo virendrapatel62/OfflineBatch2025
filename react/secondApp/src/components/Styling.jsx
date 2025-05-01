@@ -1,5 +1,6 @@
 function Styling() {
   const buttonColor = "tomato";
+  const borderRadius = "50px";
 
   return (
     <div>
@@ -8,7 +9,7 @@ function Styling() {
       <input
         style={{
           height: "30px",
-          borderRadius: "8px",
+          borderRadius: borderRadius,
           border: "1px solid gray",
           padding: "8px",
         }}
