@@ -1,11 +1,11 @@
+import Day10 from "./Day10";
 import UserForm from "./UserForm";
 
 function App() {
   return (
     <div>
-      <h1>App</h1>
-      <hr />
-      <UserForm />
+      {/* <UserForm /> */}
+      <Day10 />
     </div>
   );
 }
