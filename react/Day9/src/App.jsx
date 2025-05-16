@@ -6,10 +6,7 @@ function App() {
     age: 25,
   });
 
-  console.log(user);
-
   const updateAge = () => {
-    console.log("Updating age....");
     const newUser = {
       ...user,
     };
@@ -22,7 +19,6 @@ function App() {
       <h1>Day 9</h1>
       <button onClick={updateAge}>Update age By 1</button>
 
-      <br />
       <br />
       <table
         border={1}
