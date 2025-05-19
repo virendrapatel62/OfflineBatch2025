@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import UserTable from "./UserTable";
 
 const url = "https://jsonplaceholder.typicode.com/users";
 
@@ -49,36 +50,7 @@ export default function Day12() {
       </div>
 
       <div hidden={loading}>
-        <table
-          style={{
-            width: "100%",
-            marginTop: "20px",
-            marginBottom: "20px",
-            border: "1px solid gray",
-            textAlign: "center",
-          }}
-        >
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user, index) => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>
-                  <button onClick={() => handleDelete(index)}>Delete</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <UserTable users={users} onDelete={handleDelete} />
       </div>
     </div>
   );
