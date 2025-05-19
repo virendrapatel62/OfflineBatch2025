@@ -93,15 +93,3 @@ export default function Day10() {
     </div>
   );
 }
-
-const numbers = [1, 3, 4];
-
-let double = numbers.map((number) => {
-  number;
-});
-
-console.log(double);
-
-double = numbers.map((number) => number);
-
-console.log(double);
