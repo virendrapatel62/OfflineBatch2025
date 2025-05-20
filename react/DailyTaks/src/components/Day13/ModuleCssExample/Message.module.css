@@ -1,0 +1,11 @@
+.heading2 {
+  text-align: center;
+  background-color: tomato;
+  color: white;
+  border-radius: 16px;
+}
+
+.productDescription {
+  font-size: larger;
+  color: gray;
+}

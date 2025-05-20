@@ -1,0 +1,21 @@
+.title {
+  font-size: 50px;
+}
+
+.productsTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.productsTable th,
+.productsTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.productsTable img {
+  width: 200px;
+  aspect-ratio: 1;
+  border-radius: 10%;
+}

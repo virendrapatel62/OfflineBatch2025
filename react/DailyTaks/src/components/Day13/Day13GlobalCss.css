@@ -1,0 +1,17 @@
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.products-table th,
+.products-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.products-table img {
+  width: 200px;
+  aspect-ratio: 1;
+  border-radius: 10%;
+}
