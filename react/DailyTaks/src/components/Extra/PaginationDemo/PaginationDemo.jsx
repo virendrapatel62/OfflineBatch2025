@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from "./PaginationDemo.module.css";
+import { toast, ToastContainer } from "react-toastify";
 
 const url = "https://fakestoreapi.com/products";
 
@@ -32,15 +33,23 @@ export default function PaginationDemo() {
 
   const onPageChange = (pageNumber) => {
     if (pageNumber < 1) return;
-    if (pageNumber > totalPages) return;
+    if (pageNumber > totalPages) {
+      toast.error("No more pages..");
+      return;
+    }
 
     setPageNumber(pageNumber);
   };
 
   useEffect(() => {
+    toast.loading("Getting products");
     fetchPhotos().then((data) => {
       setProducts(data);
       updateOnScreenData(data, pageNumber);
+      toast.dismiss();
+      toast.info("Products are ready to buy", {
+        autoClose: 2000,
+      });
     });
   }, []);
 
@@ -94,6 +103,8 @@ export default function PaginationDemo() {
           {">"}
         </button>
       </div>
+
+      <ToastContainer />
     </div>
   );
 }
