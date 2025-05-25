@@ -10,6 +10,7 @@ import Day14 from "./components/Day14/Day14";
 import Day14Toast from "./components/Day14/Day14Toast";
 import Day14ReactIcons from "./components/Day14/Day14ReactIcons";
 import Day15 from "./components/Day15/Day15";
+import Day16 from "./components/Day16/Day16";
 function App() {
   return (
     <div>
@@ -24,9 +25,10 @@ function App() {
       {/* <Day14 /> */}
       {/* <Day14Toast /> */}
       {/* <Day14ReactIcons /> */}
-      <Day15 />
+      {/* <Day15 /> */}
+
+      <Day16 />
     </div>
   );
 }
-
 export default App;
