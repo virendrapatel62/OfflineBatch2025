@@ -9,6 +9,7 @@ import PaginationDemo from "./components/Extra/PaginationDemo/PaginationDemo";
 import Day14 from "./components/Day14/Day14";
 import Day14Toast from "./components/Day14/Day14Toast";
 import Day14ReactIcons from "./components/Day14/Day14ReactIcons";
+import Day15 from "./components/Day15/Day15";
 function App() {
   return (
     <div>
@@ -18,13 +19,12 @@ function App() {
       {/* <Day12 /> */}
       {/* <Day13GlobalCss /> */}
       {/* <Day13ModuleCss /> */}
-
       {/* <PaginationDemo /> */}
-
       {/* <Message /> */}
       {/* <Day14 /> */}
       {/* <Day14Toast /> */}
-      <Day14ReactIcons />
+      {/* <Day14ReactIcons /> */}
+      <Day15 />
     </div>
   );
 }

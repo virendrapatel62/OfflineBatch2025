@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 const url = "https://fakestoreapi.com/products";
 
-const fetchPhotos = async () => {
+const fetchProducts = async () => {
   const res = await axios.get(url);
   return res.data;
 };
@@ -43,7 +43,7 @@ export default function PaginationDemo() {
 
   useEffect(() => {
     toast.loading("Getting products");
-    fetchPhotos().then((data) => {
+    fetchProducts().then((data) => {
       setProducts(data);
       updateOnScreenData(data, pageNumber);
       toast.dismiss();
