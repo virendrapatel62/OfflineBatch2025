@@ -1,0 +1,30 @@
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  box-sizing: border-box;
+  gap: 8px;
+}
+
+.product {
+  box-sizing: border-box;
+  border: 1px solid #0000001b;
+  padding: 8px;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product img {
+  width: 100%;
+}
+
+.addToCart {
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+}
