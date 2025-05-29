@@ -5,6 +5,11 @@
   gap: 8px;
 }
 
+.productLink {
+  text-decoration: none;
+  color: #000000;
+}
+
 .product {
   box-sizing: border-box;
   border: 1px solid #0000001b;
@@ -27,4 +32,6 @@
   border: none;
   padding: 8px;
   border-radius: 8px;
+
+  cursor: pointer;
 }
