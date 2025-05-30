@@ -14,7 +14,7 @@ export default function ProductDetailsPage() {
   useEffect(() => {
     setLoading(true);
     setProduct(null);
-    axios.get(`https://dummyjson.com/products/${productId}`).then((res) => {
+    axios.get(`https://fakestoreapi.com/products/${productId}`).then((res) => {
       console.log(res.data);
       setProduct(res.data);
       setLoading(false);
@@ -28,7 +28,7 @@ export default function ProductDetailsPage() {
       {product && (
         <div>
           <img
-            src={product.thumbnail}
+            src={product.image}
             width={200}
             height={200}
             alt={product.title}
