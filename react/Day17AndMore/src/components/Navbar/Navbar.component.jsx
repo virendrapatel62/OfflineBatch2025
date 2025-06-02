@@ -15,6 +15,17 @@ export default function NavbarComponent() {
 
       <ul className={styles.navbarList}>
         <li className={styles.navbarItem}>
+          <Link to="/calculator" className={styles.navbarLink}>
+            Calculator
+          </Link>
+        </li>
+
+        <li className={styles.navbarItem}>
+          <Link to="/v2/calculator" className={styles.navbarLink}>
+            Calculator v2
+          </Link>
+        </li>
+        <li className={styles.navbarItem}>
           <Link to="/login" className={styles.navbarLink}>
             Login
           </Link>
