@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 
@@ -9,16 +9,25 @@ const style = {
   margin: "10px",
 };
 
+export const _news = {
+  title: "News Title Normal",
+  content: "News Content",
+  date: "2025-01-01",
+  author: "John Doe",
+  image: "https://placehold.co/600x400",
+  link: "https://www.google.com",
+};
+
 export default function NewsDetails() {
   const { year, month, day } = useParams();
-  const [news, setNews] = useState({
-    title: "News Title",
-    content: "News Content",
-    date: "2025-01-01",
-    author: "John Doe",
-    image: "https://placehold.co/600x400",
-    link: "https://www.google.com",
-  });
+  const [news, setNews] = useState(_news);
+
+  useEffect(() => {
+    setNews({
+      ...news,
+      title: "Updated News Title Normal",
+    });
+  }, []);
 
   return (
     <div style={style}>
@@ -44,13 +53,11 @@ function NewsCard({ news }) {
   );
 }
 
-function NewsTitle(props) {
-  const { title } = props;
+function NewsTitle({ title }) {
   return <h2>{title}</h2>;
 }
 
-function NewsPoster(props) {
-  const { image } = props;
+function NewsPoster({ image }) {
   return (
     <div>
       <img src={image} />
@@ -58,8 +65,7 @@ function NewsPoster(props) {
   );
 }
 
-function NewsContent(props) {
-  const { news } = props;
+function NewsContent({ news }) {
   return (
     <div>
       <p>{news.content}</p>
