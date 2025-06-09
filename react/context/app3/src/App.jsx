@@ -1,5 +1,21 @@
 import React, { useEffect, useState } from "react";
 
+function ScreenProtection() {
+  useEffect(() => {
+    const handleBlur = () => {
+      alert("warning. you are leaving the page");
+    };
+
+    window.addEventListener("blur", handleBlur);
+
+    return function onUnmount() {
+      window.removeEventListener("blur", handleBlur);
+    };
+  }, []);
+
+  return <div>ScreenProtection</div>;
+}
+
 function TodoItem({ todo }) {
   useEffect(() => {
     console.log("TodoItem Rendered", todo.title);
@@ -27,6 +43,8 @@ export default function App() {
     { id: 3, title: "Todo 3" },
   ]);
 
+  const [isScreenProtected, setIsScreenProtected] = useState(false);
+
   const handleAddMore = () => {
     setTodos([
       ...todos,
@@ -48,6 +66,12 @@ export default function App() {
           <button onClick={() => handleDelete(todo.id)}>X</button>
         </div>
       ))}
+
+      <button onClick={() => setIsScreenProtected(!isScreenProtected)}>
+        {isScreenProtected ? "Unprotect" : "Protect"}
+      </button>
+
+      {isScreenProtected && <ScreenProtection />}
     </div>
   );
 }
