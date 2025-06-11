@@ -23,12 +23,6 @@ function TodoItem({ todo }) {
     const interval = setInterval(() => {
       console.log("TodoItem Interval", todo.title);
     }, 1000);
-
-    return function onUnmount() {
-      console.log("TodoItem Unmounted", todo.title);
-      console.log("TodoItem Interval Cleared", todo.title);
-      clearInterval(interval);
-    };
   }, []);
 
   console.log("TodoItem Re Render", todo.title);

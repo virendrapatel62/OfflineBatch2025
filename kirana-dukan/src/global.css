@@ -1,0 +1,22 @@
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+
+  font-size: 16px;
+
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  padding: 16px;
+}
+
+:root {
+  --primary-color: #1a1b26;
+  --secondary-color: #7f8caa;
+  --tertiary-color: #b8cfce;
+  --light-color: #eaeefe;
+  --dark-color: #333446;
+}
