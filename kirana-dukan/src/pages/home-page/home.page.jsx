@@ -6,7 +6,7 @@ import { dukanStore } from "../../stores/dukan.store";
 import { useRecoilState } from "recoil";
 
 const url =
-  "https://raw.githubusercontent.com/virendrapatel62/OfflineBatch2025/03e4ae3a5f40b992fdb0f6632b510ca4f7d23005/data/products.json";
+  "https://raw.githubusercontent.com/virendrapatel62/OfflineBatch2025/refs/heads/main/data/products.json";
 export default function HomePage() {
   const [aboutStore, setAboutStore] = useRecoilState(dukanStore);
 
