@@ -1,6 +1,11 @@
 import React from "react";
 import NaviationProvider from "./navigation.provider";
+import { RecoilRoot } from "recoil";
 
 export default function App() {
-  return <NaviationProvider></NaviationProvider>;
+  return (
+    <RecoilRoot>
+      <NaviationProvider></NaviationProvider>
+    </RecoilRoot>
+  );
 }
