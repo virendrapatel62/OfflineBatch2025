@@ -4,12 +4,12 @@ import axios from "axios";
 import { productsListingStore } from "../../stores/products-listing.store";
 import { dukanStore } from "../../stores/dukan.store";
 import { useRecoilState } from "recoil";
+import { Link } from "react-router";
 
 const url =
   "https://raw.githubusercontent.com/virendrapatel62/OfflineBatch2025/refs/heads/main/data/products.json";
 export default function HomePage() {
   const [aboutStore, setAboutStore] = useRecoilState(dukanStore);
-
   const [storeData, setStoreData] = useRecoilState(productsListingStore);
 
   useEffect(() => {
@@ -33,7 +33,27 @@ export default function HomePage() {
 
   return (
     <div className={styles.container}>
-      <h1>Kshitij Kirana Store</h1>
+      <h1>{aboutStore.storeName}</h1>
+
+      <div className={styles.products}>
+        {storeData.products?.map((product) => (
+          <Link
+            to={`/product/${product.id}`}
+            key={product.id}
+            className={styles.product}
+          >
+            <img src={product.image} alt={product.name} />
+
+            <div className={styles.productInfo}>
+              <div className={styles.productName}>{product.name}</div>
+              <div className={styles.productPrice}>
+                ₹ {product.price}/{product.unit}
+              </div>
+              <div>{product.description}</div>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
