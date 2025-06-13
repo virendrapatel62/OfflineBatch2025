@@ -1,0 +1,133 @@
+{
+    "storeName": "Ramu Kirana Dukan",
+    "products": [
+        {
+            "id": 1,
+            "name": "Toor Dal",
+            "category": "Pulses",
+            "price": 120,
+            "unit": "1 kg",
+            "image": "https://placehold.co/600x400/ffcc00/000?text=Toor%20Dal"
+        },
+        {
+            "id": 2,
+            "name": "Basmati Rice",
+            "category": "Rice",
+            "price": 95,
+            "unit": "1 kg",
+            "image": "https://placehold.co/600x400/4caf50/ffffff?text=Basmati%20Rice"
+        },
+        {
+            "id": 3,
+            "name": "Atta (Wheat Flour)",
+            "category": "Flour",
+            "price": 45,
+            "unit": "1 kg",
+            "image": "https://placehold.co/600x400/f5f5dc/000000?text=Atta"
+        },
+        {
+            "id": 4,
+            "name": "Sugar",
+            "category": "Essentials",
+            "price": 40,
+            "unit": "1 kg",
+            "image": "https://placehold.co/600x400/f0f0f0/333333?text=Sugar"
+        },
+        {
+            "id": 5,
+            "name": "Salt",
+            "category": "Essentials",
+            "price": 20,
+            "unit": "1 kg",
+            "image": "https://placehold.co/600x400/e0ffff/000000?text=Salt"
+        },
+        {
+            "id": 6,
+            "name": "Sunflower Oil",
+            "category": "Oils",
+            "price": 130,
+            "unit": "1 liter",
+            "image": "https://placehold.co/600x400/fff8dc/000000?text=Sunflower%20Oil"
+        },
+        {
+            "id": 7,
+            "name": "Tea Powder",
+            "category": "Beverages",
+            "price": 180,
+            "unit": "500 gm",
+            "image": "https://placehold.co/600x400/8b4513/ffffff?text=Tea%20Powder"
+        },
+        {
+            "id": 8,
+            "name": "Milk (Tetra Pack)",
+            "category": "Dairy",
+            "price": 60,
+            "unit": "1 liter",
+            "image": "https://placehold.co/600x400/ffffff/000000?text=Milk"
+        },
+        {
+            "id": 9,
+            "name": "Maggi Noodles",
+            "category": "Snacks",
+            "price": 15,
+            "unit": "70 gm",
+            "image": "https://placehold.co/600x400/ffd700/000000?text=Maggi"
+        },
+        {
+            "id": 10,
+            "name": "Toothpaste",
+            "category": "Personal Care",
+            "price": 45,
+            "unit": "100 gm",
+            "image": "https://placehold.co/600x400/d3d3d3/000000?text=Toothpaste"
+        },
+        {
+            "id": 11,
+            "name": "Bathing Soap",
+            "category": "Personal Care",
+            "price": 30,
+            "unit": "1 bar",
+            "image": "https://placehold.co/600x400/f08080/000000?text=Soap"
+        },
+        {
+            "id": 12,
+            "name": "Shampoo Sachet",
+            "category": "Personal Care",
+            "price": 5,
+            "unit": "6 ml",
+            "image": "https://placehold.co/600x400/dda0dd/000000?text=Shampoo"
+        },
+        {
+            "id": 13,
+            "name": "Detergent Powder",
+            "category": "Cleaning",
+            "price": 60,
+            "unit": "500 gm",
+            "image": "https://placehold.co/600x400/add8e6/000000?text=Detergent"
+        },
+        {
+            "id": 14,
+            "name": "Phenyl",
+            "category": "Cleaning",
+            "price": 50,
+            "unit": "500 ml",
+            "image": "https://placehold.co/600x400/90ee90/000000?text=Phenyl"
+        },
+        {
+            "id": 15,
+            "name": "Chilli Powder",
+            "category": "Spices",
+            "price": 80,
+            "unit": "100 gm",
+            "image": "https://placehold.co/600x400/ff4500/ffffff?text=Chilli%20Powder"
+        },
+        {
+            "id": 16,
+            "name": "Turmeric Powder",
+            "category": "Spices",
+            "price": 60,
+            "unit": "100 gm",
+            "image": "https://placehold.co/600x400/ffff00/000000?text=Turmeric"
+        }
+    ]
+}
