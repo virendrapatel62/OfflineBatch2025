@@ -1,8 +1,9 @@
 import { atom } from "recoil";
 
-export const dukanStore = atom({
-  key: "about-store",
-  default: {
+function getDefaultValue() {
+  const aboutStoreString = localStorage.getItem("dukan-info");
+
+  const emptyDefault = {
     storeName: "",
     address: "",
     phone: "",
@@ -11,5 +12,19 @@ export const dukanStore = atom({
     logo: "",
     banner: "",
     description: "",
-  },
+  };
+
+  try {
+    const value = JSON.parse(aboutStoreString);
+    if (value) return value;
+  } catch (error) {}
+
+  return emptyDefault;
+}
+
+getDefaultValue();
+
+export const dukanStore = atom({
+  key: "about-store",
+  default: getDefaultValue(),
 });

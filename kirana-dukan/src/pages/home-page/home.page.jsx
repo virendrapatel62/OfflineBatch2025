@@ -17,15 +17,20 @@ export default function HomePage() {
       const storeName = res.data.storeName;
       const products = res.data.products;
 
-      setAboutStore({
+      const updatedAboutStore = {
         ...aboutStore,
         storeName,
-      });
+      };
+      setAboutStore(updatedAboutStore);
+
+      localStorage.setItem("dukan-info", JSON.stringify(updatedAboutStore));
 
       setStoreData({
         ...storeData,
         products,
       });
+
+      localStorage.setItem("homepage-products", JSON.stringify(products));
 
       console.log(storeName, products);
     });
