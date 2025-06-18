@@ -13,6 +13,12 @@ export default function HomePage() {
   const [storeData, setStoreData] = useRecoilState(productsListingStore);
 
   useEffect(() => {
+    axios.get("http://localhost:5173/user.json").then((res) => {
+      console.log(res.data);
+    });
+  }, []);
+
+  useEffect(() => {
     axios.get(url).then((res) => {
       const storeName = res.data.storeName;
       const products = res.data.products;

@@ -9,6 +9,32 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: var(--light-color);
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--secondary-color);
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  width: 300px;
+}
+
+button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--secondary-color);
+  display: block;
+  width: 200px;
+
+  cursor: pointer;
+}
+
 main {
   padding: 16px;
 }
