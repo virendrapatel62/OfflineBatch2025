@@ -1,8 +1,7 @@
-import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
-import { Get } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 
 import { JwtService } from '@nestjs/jwt';
-import { UserService, createUserDto } from './user.service';
+import { UserService } from './user.service';
 
 @Controller('/users')
 export class UserController {

@@ -4,9 +4,8 @@ import { PrismaService } from '../prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 
-import { User } from '../../generated/prisma';
-import { create } from 'domain';
 import { JWT_SECRET, JwtPayload } from 'src/auth/jwt.strategy';
+import { CreateUserDto } from 'src/auth/auth.dto';
 
 @Injectable()
 export class UserService {
@@ -33,7 +32,7 @@ export class UserService {
     return {
       status: 'ok',
       message: 'Login successful',
-      token: await this.generateJwt({
+      accessToken: await this.generateJwt({
         id: user.id,
         name: user.name || 'Anonymous',
       }),
@@ -41,14 +40,14 @@ export class UserService {
   }
 
   // Generates a JWT token
-  async generateJwt(payload: JwtPayload): Promise<string> {
+  private async generateJwt(payload: JwtPayload): Promise<string> {
     return this.jwtService.sign(payload, {
       secret: JWT_SECRET,
     });
   }
 
   // Optionally, you can verify a JWT token here (e.g., on login or protected routes)
-  async verifyJwt(token: string): Promise<JwtPayload> {
+  private async verifyJwt(token: string): Promise<JwtPayload> {
     return this.jwtService.verify(token);
   }
 
@@ -58,8 +57,16 @@ export class UserService {
     };
   }
 
-  createUser(user: createUserDto) {
+  async createUser(user: CreateUserDto) {
     const hashedPassword = bcrypt.hashSync(user.password, 10);
+
+    const existingUser = await this.prisma.user.findUnique({
+      where: { email: user.email },
+    });
+
+    if (existingUser) {
+      throw new BadRequestException('User already exists');
+    }
 
     return this.prisma.user.create({
       data: {
@@ -69,10 +76,4 @@ export class UserService {
       },
     });
   }
-}
-
-export interface createUserDto {
-  name: string;
-  email: string;
-  password: string;
 }
