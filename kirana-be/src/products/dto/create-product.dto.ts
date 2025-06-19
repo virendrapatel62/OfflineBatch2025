@@ -65,4 +65,12 @@ export class CreateProductDto {
   @IsOptional()
   @IsString()
   unit?: string;
+
+  @ApiProperty({
+    description: 'The category of the product',
+    example: 'Food',
+  })
+  @IsOptional()
+  @IsString()
+  category?: string;
 }

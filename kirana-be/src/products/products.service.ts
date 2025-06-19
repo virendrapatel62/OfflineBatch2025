@@ -19,7 +19,8 @@ export class ProductsService {
         isActive: true,
         price: data.price,
         discount: data.discount || 0,
-        unit: data.unit || 'pcs',
+        unit: String(data.unit || 'pcs').toUpperCase(),
+        category: data.category || 'other',
       },
     });
 
@@ -35,7 +36,8 @@ export class ProductsService {
         isActive: true,
         images: data.images,
         discount: data.discount || 0,
-        unit: data.unit || 'pcs',
+        unit: String(data.unit || 'pcs').toUpperCase(),
+        category: data.category || 'other',
       },
     });
   }
