@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 function getProductsFromLocal() {
   try {
-    const products = JSON.parse(localStorage.getItem("homepage-products"));
+    const products = JSON.parse(localStorage.getItem("product-listing"));
     return products;
   } catch (error) {
     return [];
