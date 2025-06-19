@@ -28,10 +28,15 @@ model Product {
   id        Int     @id @default(autoincrement())
   name      String  @map("name")
   description String? @map("description")
+
   price     Int     @map("price")
   discount  Int?    @map("discount")
+  unit      String?  @map("unit")
+
+  category  String?  @map("category")
   isActive  Boolean @default(true) @map("is_active")
   images    String[] @map("images")
+
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }

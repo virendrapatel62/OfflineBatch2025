@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
@@ -9,6 +13,20 @@ export class ProductsService {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(data: CreateProductDto) {
+    const existingProduct = await this.prisma.product.findFirst({
+      where: {
+        name: data.name,
+        isActive: true,
+        price: data.price,
+        discount: data.discount || 0,
+        unit: data.unit || 'pcs',
+      },
+    });
+
+    if (existingProduct) {
+      throw new BadRequestException('Product already exists');
+    }
+
     return this.prisma.product.create({
       data: {
         name: data.name,
@@ -16,6 +34,8 @@ export class ProductsService {
         description: data.description,
         isActive: true,
         images: data.images,
+        discount: data.discount || 0,
+        unit: data.unit || 'pcs',
       },
     });
   }
@@ -42,8 +62,13 @@ export class ProductsService {
       }),
     ]);
 
+    const productsWithSellPrice = products.map((product) => ({
+      ...product,
+      sellPrice: product.price * (1 - (product.discount || 0) / 100),
+    }));
+
     return {
-      data: products,
+      data: productsWithSellPrice,
       meta: {
         page: Number(page),
         limit: Number(limit),
