@@ -54,7 +54,9 @@ export class ProductsController {
     description: 'Product ID',
     example: 1,
   })
-  findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.productsService.findOne(id);
+  async findOne(@Param('id', ParseIntPipe) id: number) {
+    return {
+      data: await this.productsService.findOne(id),
+    };
   }
 }
