@@ -23,3 +23,16 @@ model User {
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
+
+model Product {
+  id        Int     @id @default(autoincrement())
+  name      String  @map("name")
+  description String? @map("description")
+  price     Int     @map("price")
+  discount  Int?    @map("discount")
+  isActive  Boolean @default(true) @map("is_active")
+  images    String[] @map("images")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+

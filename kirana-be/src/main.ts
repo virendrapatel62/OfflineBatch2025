@@ -13,10 +13,19 @@ async function bootstrap() {
     .setTitle('My API')
     .setDescription('API documentation')
     .setVersion('1.0')
-    .addTag('users') // optional
+    .addTag('users')
+    .addTag('products')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document); // Swagger at /api/docs
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true, // strips unknown fields
+      forbidNonWhitelisted: true, // errors on unknown fields
+      transform: true,
+    }),
+  );
 
   app.enableCors({
     origin: '*',
