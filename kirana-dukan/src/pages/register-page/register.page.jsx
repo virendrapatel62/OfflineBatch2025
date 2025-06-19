@@ -31,10 +31,11 @@ export default function RegisterPage() {
         password,
       })
       .then((res) => {
-        console.log(res);
+        alert("Register successful");
+        navigate("/login");
       })
       .catch((err) => {
-        console.log(err);
+        setError(err.response.data.message);
       })
       .finally(() => {
         setIsLoading(false);

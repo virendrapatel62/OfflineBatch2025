@@ -36,6 +36,10 @@ export class UserService {
         id: user.id,
         name: user.name || 'Anonymous',
       }),
+      user: {
+        ...user,
+        password: undefined,
+      },
     };
   }
 
