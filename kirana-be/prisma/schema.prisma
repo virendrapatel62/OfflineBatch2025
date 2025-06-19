@@ -11,7 +11,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./database.db"  // You can change the filename if needed
+  url      = "file:/opt/kirana/database.db"  // You can change the filename if needed //
 }
 
 model User {
