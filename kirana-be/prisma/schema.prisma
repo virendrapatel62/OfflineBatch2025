@@ -10,8 +10,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:/opt/kirana/database.db"  // You can change the filename if needed //
+  provider = "postgresql"
+  url      = env("DB_URL")  // You can change the filename if needed //
 }
 
 model User {
