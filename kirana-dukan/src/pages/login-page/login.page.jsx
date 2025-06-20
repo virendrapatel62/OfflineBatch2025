@@ -3,8 +3,8 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Urls } from "../../constants/urls";
-import { useSetRecoilState } from "recoil";
-import { authStore } from "../../stores/auth.store";
+import { useRecoilState } from "recoil";
+import { authStore as authStoreAtom } from "../../stores/auth.store";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -13,7 +13,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const setAuthStore = useSetRecoilState(authStore);
+  const [authStore, setAuthStore] = useRecoilState(authStoreAtom);
 
   const handleLogin = () => {
     if (!email || !password) {
@@ -35,14 +35,17 @@ export default function LoginPage() {
         const token = data.accessToken;
 
         setAuthStore({
+          ...authStore,
           user,
           token,
           isAuthenticated: true,
         });
 
+        authStore.saveTokenToLocalStorage(token);
         navigate("/");
       })
       .catch((err) => {
+        console.log(err);
         setError(err.response.data.message);
       })
       .finally(() => {

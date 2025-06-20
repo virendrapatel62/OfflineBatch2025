@@ -2,18 +2,14 @@ import React from "react";
 import styles from "./home.module.css";
 import { productsListingStore } from "../../stores/products-listing.store";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { Link } from "react-router";
 import { authStore } from "../../stores/auth.store";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 
 export default function HomePage() {
-  const [storeData, setStoreData] = useRecoilState(productsListingStore);
+  const [storeData] = useRecoilState(productsListingStore);
   const navigate = useNavigate();
-
-  const location = useLocation();
-
-  const { user, token, isAuthenticated } = useRecoilValue(authStore);
+  const { isAuthenticated } = useRecoilValue(authStore);
 
   useEffect(() => {
     if (!isAuthenticated) {

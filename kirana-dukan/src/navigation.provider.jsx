@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/home-page/home.page";
 import Navbar from "./components/navbar/navbar.component";
@@ -7,13 +7,13 @@ import RegisterPage from "./pages/register-page/register.page";
 
 export default function NaviationProvider() {
   return (
-    <BrowserRouter>
+    <Fragment>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
       </Routes>
-    </BrowserRouter>
+    </Fragment>
   );
 }
