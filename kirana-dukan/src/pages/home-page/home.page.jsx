@@ -1,13 +1,11 @@
-import React from "react";
-import styles from "./home.module.css";
-import { productsListingStore } from "../../stores/products-listing.store";
-import { useRecoilState, useRecoilValue } from "recoil";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import ProductListingComponent from "../../components/product-listing/product-listing.component";
 import { authStore } from "../../stores/auth.store";
-import { useNavigate, useLocation, Link } from "react-router-dom";
-import { useEffect } from "react";
+import styles from "./home.module.css";
 
 export default function HomePage() {
-  const [storeData] = useRecoilState(productsListingStore);
   const navigate = useNavigate();
   const { isAuthenticated } = useRecoilValue(authStore);
 
@@ -19,27 +17,8 @@ export default function HomePage() {
 
   return (
     <div className={styles.container}>
-      <h1>Dukan</h1>
-
-      <div className={styles.products}>
-        {storeData.products?.map((product) => (
-          <Link
-            to={`/product/${product.id}`}
-            key={product.id}
-            className={styles.product}
-          >
-            <img src={product.image} alt={product.name} />
-
-            <div className={styles.productInfo}>
-              <div className={styles.productName}>{product.name}</div>
-              <div className={styles.productPrice}>
-                ₹ {product.price}/{product.unit}
-              </div>
-              <div>{product.description}</div>
-            </div>
-          </Link>
-        ))}
-      </div>
+      <h1 className={styles.title}>Dukan</h1>
+      <ProductListingComponent />
     </div>
   );
 }

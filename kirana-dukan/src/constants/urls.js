@@ -4,4 +4,6 @@ export const API_BASE_URL = "https://kiranabe.onrender.com/api";
 export const Urls = {
   register: `${API_BASE_URL}/auth/register`,
   login: `${API_BASE_URL}/auth/login`,
+  products: `${API_BASE_URL}/products`,
+  productDetails: (id) => `${API_BASE_URL}/products/${id}`,
 };
