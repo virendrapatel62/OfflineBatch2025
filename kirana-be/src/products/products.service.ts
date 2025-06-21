@@ -94,7 +94,10 @@ export class ProductsService {
       throw new NotFoundException(`Product with ID ${id} not found`);
     }
 
-    return product;
+    return {
+      ...product,
+      sellPrice: product.price * (1 - (product.discount || 0) / 100),
+    };
   }
 
   async update(id: number, updateProductDto: UpdateProductDto) {
