@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import styles from "./navbar.module.css";
 import { Link } from "react-router-dom";
 import { authStore as authStoreAtom, logout } from "../../stores/auth.store";
 import { useRecoilValue, useRecoilState } from "recoil";
@@ -21,14 +20,14 @@ export default function Navbar() {
   };
 
   return (
-    <div className={styles.navbar}>
-      <ul>
+    <div className="flex bg-slate-800 text-slate-200  justify-between items-center p-4 border-b-1 border-gray-200">
+      <ul className="flex gap-4">
         <li>
           <Link to="/">Dukan</Link>
         </li>
       </ul>
 
-      <ul>
+      <ul className="flex gap-4">
         {isAuthenticated ? (
           <Fragment>
             <li>

@@ -4,6 +4,8 @@ import axios from "axios";
 import { Urls } from "../../constants/urls";
 import styles from "./product-details.module.css";
 import ProductListingComponent from "../../components/product-listing/product-listing.component";
+import { placeholderImage } from "../../constants/images";
+import Image from "../../components/image/image";
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
@@ -44,7 +46,7 @@ export default function ProductDetailsPage() {
     <div className={styles.page}>
       <div className={styles.productDetails}>
         <div className={styles.imageWrapper}>
-          <img className={styles.image} src={images?.[0]} alt={name} />
+          <Image src={images?.[0]} alt={name} className={styles.image} />
         </div>
         <div className={styles.info}>
           <h1 className={styles.title}>{name}</h1>

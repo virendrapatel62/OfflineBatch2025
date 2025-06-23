@@ -16,8 +16,11 @@ export default function HomePage() {
   }, [isAuthenticated]);
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Dukan</h1>
+    <div className="container mx-auto">
+      <div className="py-4 border-b border-gray-200 mb-4">
+        <h1 className="text-4xl font-bold">Dukan</h1>
+      </div>
+
       <ProductListingComponent />
     </div>
   );

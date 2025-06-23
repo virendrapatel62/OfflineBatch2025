@@ -43,34 +43,56 @@ export default function RegisterPage() {
   };
 
   return (
-    <div>
-      <h1>Register</h1>
+    <div className="m-4 mt-10">
+      <div className="flex flex-col w-4/12 gap-1 mx-auto border-1 p-4 border-gray-200 rounded-md">
+        <div className="my-8">
+          <h1 className="text-2xl font-bold">Register</h1>
+        </div>
 
-      <form onSubmit={handleRegister} className="flex gap-1">
-        {error && <p className="error">{error}</p>}
+        <form onSubmit={handleRegister} className="flex flex-col gap-1">
+          <div className="flex flex-col gap-1">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              className="border-1 border-gray-200 rounded-md p-2"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              placeholder="Email"
+              value={email}
+              className="border-1 border-gray-200 rounded-md p-2"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              className="border-1 border-gray-200 rounded-md p-2"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
 
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="button" disabled={isLoading}>
-          {isLoading ? "Registering..." : "Register"}
-        </button>
-      </form>
+          {error && <p className="text-red-500">{error}</p>}
+
+          <div className="mt-4">
+            <button
+              className="bg-slate-700 w-full text-slate-200 rounded-md p-2"
+              disabled={isLoading}
+            >
+              {isLoading ? "Registering..." : "Register"}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

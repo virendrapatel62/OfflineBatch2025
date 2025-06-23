@@ -56,26 +56,44 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="m-4">
-      <div className="flex gap-1 mx-auto w-300 border-1">
-        <h1>Login</h1>
+    <div className="m-4 mt-10">
+      <div className="flex flex-col w-4/12    gap-1 mx-auto  border-1 p-4  border-gray-200 rounded-md">
+        <div className="my-8">
+          <h1 className="text-2xl font-bold">Login</h1>
+        </div>
 
         {error && <p className="error">{error}</p>}
-        <input
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="button" onClick={handleLogin} disabled={isLoading}>
-          {isLoading ? "Logging in..." : "Login"}
-        </button>
+
+        <div className="flex flex-col gap-1">
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            placeholder="Email"
+            value={email}
+            className="border-1 border-gray-200 rounded-md p-2"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            className="border-1 border-gray-200 rounded-md p-2"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        <div className="mt-4">
+          <button
+            className="bg-slate-700 w-full text-slate-200 rounded-md p-2"
+            onClick={handleLogin}
+            disabled={isLoading}
+          >
+            {isLoading ? "Logging in..." : "Login"}
+          </button>
+        </div>
       </div>
     </div>
   );
