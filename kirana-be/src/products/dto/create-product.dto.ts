@@ -22,7 +22,6 @@ export class CreateProductDto {
 
   @ApiProperty({
     description: 'The images of the product',
-    example: ['https://example.com/image1.jpg'],
   })
   @IsDefined() // ❗ This ensures the field exists
   @IsArray()
@@ -60,7 +59,7 @@ export class CreateProductDto {
 
   @ApiProperty({
     description: 'The unit of the product',
-    example: 'kg , g , l , ml',
+    example: 'kg',
   })
   @IsOptional()
   @IsString()

@@ -14,6 +14,12 @@ datasource db {
   url      = env("DB_URL")  // You can change the filename if needed //
 }
 
+enum Role {
+  SELLER
+  USER
+}
+
+
 model User {
   id        Int     @id @default(autoincrement())
   name      String? @map("name")
@@ -21,6 +27,11 @@ model User {
   password  String  @map("password")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
+
+  role      Role @default(USER) @map("role")
+  isActive  Boolean @default(true) @map("is_active")
+
+  products Product[] @relation("products")
 }
 
 
@@ -39,5 +50,49 @@ model Product {
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
+
+  user      User?    @relation("products", fields: [userId], references: [id])
+  userId    Int?     @unique @map("user_id")
+
+  orderItems OrderItem[]
 }
 
+
+
+enum OrderStatus {
+  PENDING
+  DELIVERED
+  CANCELLED
+  RETURNED
+}
+
+model Order {
+  id        Int     @id @default(autoincrement())
+
+  userId    Int     @map("user_id")
+  total     Int     @map("total")
+
+  address   String? @map("address")
+  phone     String? @map("phone")
+
+  status    OrderStatus  @default(PENDING) @map("status")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  items OrderItem[]
+}
+
+model OrderItem {
+  id        Int     @id @default(autoincrement())
+  orderId   Int     @map("order_id")
+  productId Int     @map("product_id")
+  quantity  Int     @map("quantity")
+  unitPrice Int     @map("unit_price")
+  total     Int     @map("total")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  order   Order @relation(fields: [orderId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+}
