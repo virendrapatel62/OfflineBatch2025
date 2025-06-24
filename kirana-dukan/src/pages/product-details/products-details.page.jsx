@@ -6,15 +6,26 @@ import styles from "./product-details.module.css";
 import ProductListingComponent from "../../components/product-listing/product-listing.component";
 import { placeholderImage } from "../../constants/images";
 import Image from "../../components/image/image";
+import { Link } from "react-router-dom";
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
+
+  const [quantity, setQuantity] = useState(1);
 
   const [data, setData] = useState({
     isLoading: false,
     error: null,
     product: null,
   });
+
+  function onQuantityChange(value) {
+    if (value < 1) {
+      setQuantity(1);
+    } else {
+      setQuantity(value);
+    }
+  }
 
   useEffect(() => {
     setData({ isLoading: true, error: null, product: null });
@@ -68,6 +79,35 @@ export default function ProductDetailsPage() {
           <p className={styles.meta}>
             <strong>Category:</strong> {category}
           </p>
+
+          <div className="flex gap-2 mt-4 items-center ">
+            <button
+              className="bg-slate-700 cursor-pointer text-slate-200 rounded-md p-2 w-20"
+              onClick={() => onQuantityChange(quantity - 1)}
+            >
+              -
+            </button>
+            <div className="text-2xl font-bold w-10 text-center">
+              {quantity}
+            </div>
+
+            <button
+              className="bg-slate-700 cursor-pointer text-slate-200 rounded-md p-2 w-20"
+              onClick={() => onQuantityChange(quantity + 1)}
+            >
+              +
+            </button>
+          </div>
+
+          <div hidden>{`/checkout?item=${id}:${quantity}`}</div>
+
+          <div>
+            <Link to={`/checkout?item=${id}:${quantity}`}>
+              <button className="bg-slate-700 cursor-pointer w-full text-slate-200 rounded-md p-2">
+                Order Now
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
 

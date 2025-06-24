@@ -6,4 +6,6 @@ export const Urls = {
   login: `${API_BASE_URL}/auth/login`,
   products: `${API_BASE_URL}/products`,
   productDetails: (id) => `${API_BASE_URL}/products/${id}`,
+
+  placeOrder: `${API_BASE_URL}/orders`,
 };

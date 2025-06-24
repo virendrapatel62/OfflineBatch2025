@@ -18,7 +18,7 @@ export default function ProductListingComponent(props) {
         console.log(response.data);
         setStoreData({
           ...storeData,
-          products: shuffle(response.data.data),
+          products: response.data.data,
         });
       })
       .catch((error) => {
