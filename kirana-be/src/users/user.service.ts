@@ -80,4 +80,10 @@ export class UserService {
       },
     });
   }
+
+  getUserProfile(userId: number) {
+    return this.prisma.user.findUnique({
+      where: { id: userId },
+    });
+  }
 }
