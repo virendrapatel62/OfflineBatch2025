@@ -10,4 +10,6 @@ export const Urls = {
   placeOrder: `${API_BASE_URL}/orders`,
 
   orders: `${API_BASE_URL}/orders`,
+
+  profile: `${API_BASE_URL}/users/profile`,
 };

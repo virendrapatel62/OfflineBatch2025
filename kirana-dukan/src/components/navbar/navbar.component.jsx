@@ -34,6 +34,9 @@ export default function Navbar() {
               <Link to="/profile">Profile</Link>
             </li>
             <li>
+              <Link to="/orders">Orders</Link>
+            </li>
+            <li>
               <Link onClick={handleLogout}>Logout</Link>
             </li>
           </Fragment>

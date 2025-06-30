@@ -12,6 +12,9 @@ export class OrderService {
       where: {
         userId,
       },
+      orderBy: {
+        createdAt: 'desc',
+      },
       include: {
         items: {
           select: {

@@ -49,8 +49,10 @@ export default function CheckoutPage() {
     Promise.all(promises).then((results) => {
       let total = 0;
 
+      console.log(results);
+
       results.forEach((product) => {
-        total += product.price * getQuantity(product.id);
+        total += product.sellPrice * getQuantity(product.id);
       });
 
       setData({
@@ -135,9 +137,16 @@ export default function CheckoutPage() {
 
                 <div className="flex justify-between w-full">
                   <p>quantity: {getQuantity(product.id)}</p>
-                  <p className="font-bold">
-                    Total: {product.price * getQuantity(product.id)}
-                  </p>
+
+                  <div className="flex flex-col gap-2">
+                    <p className="font-bold line-through">
+                      Total: {product.price * getQuantity(product.id)}
+                    </p>
+                    <p className="font-bold">
+                      Pay After Discount:{" "}
+                      {product.sellPrice * getQuantity(product.id)}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
