@@ -8,6 +8,7 @@ import {
   IsArray,
   IsNotEmpty,
   IsDefined,
+  Max,
 } from 'class-validator';
 
 export class CreateProductDto {
@@ -45,6 +46,7 @@ export class CreateProductDto {
   })
   @IsNumber()
   @Min(0)
+  @Max(100)
   discount?: number;
 
   @ApiProperty({
