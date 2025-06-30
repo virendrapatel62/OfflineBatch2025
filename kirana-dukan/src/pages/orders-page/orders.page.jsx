@@ -6,7 +6,7 @@ import { Urls } from "../../constants/urls";
 import { useRecoilValue } from "recoil";
 import { authStore } from "../../stores/auth.store";
 import Image from "../../components/image/image";
-import { use } from "react";
+import Loader from "../../components/loader/loader";
 
 export default function OrdersPage() {
   const [data, setData] = useState({
@@ -17,18 +17,11 @@ export default function OrdersPage() {
   const user = useRecoilValue(authStore);
 
   useEffect(() => {
-    axios
-      .get(Urls.profile, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-      });
-  }, []);
+    setData({
+      isLoading: true,
+      orders: [],
+    });
 
-  useEffect(() => {
     axios
       .get(Urls.orders, {
         headers: {
@@ -43,10 +36,9 @@ export default function OrdersPage() {
       });
   }, []);
 
-  console.log(data.orders);
   return (
     <div className="p-4 container mx-auto">
-      {data.isLoading && <div>Loading...</div>}
+      {data.isLoading && <Loader />}
       {data.orders.map((order) => (
         <div
           key={order._id}

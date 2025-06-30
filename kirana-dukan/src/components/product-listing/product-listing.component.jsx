@@ -7,11 +7,16 @@ import { Urls } from "../../constants/urls";
 import { Link } from "react-router-dom";
 import { shuffle } from "lodash";
 import Image from "../image/image";
-
+import Loader from "../loader/loader";
 export default function ProductListingComponent(props) {
   const [storeData, setStoreData] = useRecoilState(productsListingStore);
 
   useEffect(() => {
+    setStoreData({
+      ...storeData,
+      isLoading: true,
+    });
+
     axios
       .get(Urls.products)
       .then((response) => {
@@ -19,6 +24,7 @@ export default function ProductListingComponent(props) {
         setStoreData({
           ...storeData,
           products: response.data.data,
+          isLoading: false,
         });
       })
       .catch((error) => {
@@ -28,6 +34,8 @@ export default function ProductListingComponent(props) {
 
   return (
     <div className="p-4">
+      {storeData.isLoading && <Loader />}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {storeData.products?.map((product) => (
           <div className="border-1 rounded-md border-gray-200 text-gray-600">

@@ -7,6 +7,7 @@ import ProductListingComponent from "../../components/product-listing/product-li
 import { placeholderImage } from "../../constants/images";
 import Image from "../../components/image/image";
 import { Link } from "react-router-dom";
+import Loader from "../../components/loader/loader";
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
@@ -40,7 +41,7 @@ export default function ProductDetailsPage() {
       });
   }, [id]);
 
-  if (data.isLoading) return <div className={styles.loader}>Loading...</div>;
+  if (data.isLoading) return <Loader />;
 
   if (data.error)
     return <div className={styles.status}>Error: {data.error.message}</div>;
