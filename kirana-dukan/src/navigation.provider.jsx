@@ -6,6 +6,7 @@ import LoginPage from "./pages/login-page/login.page";
 import RegisterPage from "./pages/register-page/register.page";
 import ProductDetailsPage from "./pages/product-details/products-details.page";
 import CheckoutPage from "./pages/checkout-page/checkout.page";
+import OrdersPage from "./pages/orders-page/orders.page";
 
 export default function NaviationProvider() {
   return (
@@ -17,6 +18,7 @@ export default function NaviationProvider() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/product/:id" element={<ProductDetailsPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/orders" element={<OrdersPage />} />
       </Routes>
     </Fragment>
   );

@@ -16,6 +16,9 @@ export class OrderService {
         items: {
           select: {
             product: true,
+            quantity: true,
+            unitPrice: true,
+            total: true,
           },
         },
       },
@@ -24,6 +27,11 @@ export class OrderService {
 
   async createOrder(userId: number, body: CreateOrderDto) {
     const { products, phone, address } = body;
+
+    const quantityProductMap = products.reduce((acc, product) => {
+      acc[product.id] = product.quantity;
+      return acc;
+    }, {});
 
     const productsData = await this.prisma.product.findMany({
       where: {
@@ -45,8 +53,6 @@ export class OrderService {
       return acc + productData.price * product.quantity;
     }, 0);
 
-    console.log({ total });
-
     return this.prisma.order.create({
       include: {
         items: {
@@ -65,7 +71,7 @@ export class OrderService {
         items: {
           create: products.map((product) => ({
             productId: product.id,
-            quantity: product.quantity,
+            quantity: quantityProductMap[product.id],
             unitPrice: idProductMap[product.id].price,
             total: idProductMap[product.id].price * product.quantity,
           })),

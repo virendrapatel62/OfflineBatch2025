@@ -1,5 +1,5 @@
-export const API_BASE_URL = "https://kiranabe.onrender.com/api";
-// export const API_BASE_URL = "http://localhost:4000/api";
+// export const API_BASE_URL = "https://kiranabe.onrender.com/api";
+export const API_BASE_URL = "http://localhost:4000/api";
 
 export const Urls = {
   register: `${API_BASE_URL}/auth/register`,
@@ -8,4 +8,6 @@ export const Urls = {
   productDetails: (id) => `${API_BASE_URL}/products/${id}`,
 
   placeOrder: `${API_BASE_URL}/orders`,
+
+  orders: `${API_BASE_URL}/orders`,
 };
