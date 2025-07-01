@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { Urls } from "../../constants/urls";
 import { useRecoilState } from "recoil";
@@ -12,6 +12,10 @@ export default function LoginPage() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
+  const returnTo = useSearchParams()[0].get("returnTo") || "/";
+
+  console.log(returnTo);
 
   const [authStore, setAuthStore] = useRecoilState(authStoreAtom);
 
@@ -42,7 +46,7 @@ export default function LoginPage() {
         });
 
         authStore.persist(user, token);
-        navigate("/");
+        navigate(returnTo);
       })
       .catch((err) => {
         console.log(err);

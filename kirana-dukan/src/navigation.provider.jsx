@@ -1,5 +1,11 @@
 import React, { Fragment, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import HomePage from "./pages/home-page/home.page";
 import Navbar from "./components/navbar/navbar.component";
 import LoginPage from "./pages/login-page/login.page";
@@ -18,8 +24,10 @@ import DashboardPage from "./pages/dashboard/dashboard-page";
 function AuthenticatedRoutes({ children }) {
   const auth = useAuth();
 
+  const pathname = window.location.pathname;
+
   if (!auth.isAuthenticated) {
-    return <Navigate to="/login" />;
+    return <Navigate to={`/login?returnTo=${pathname}`} />;
   }
 
   return <>{children}</>;
@@ -51,24 +59,10 @@ export default function NaviationProvider() {
     <Fragment>
       <Navbar />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <AuthenticatedRoutes>
-              <HomePage />
-            </AuthenticatedRoutes>
-          }
-        />
+        <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route
-          path="/product/:id"
-          element={
-            <AuthenticatedRoutes>
-              <ProductDetailsPage />
-            </AuthenticatedRoutes>
-          }
-        />
+        <Route path="/product/:id" element={<ProductDetailsPage />} />
         <Route
           path="/checkout"
           element={
