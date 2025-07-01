@@ -45,7 +45,7 @@ export default function ProductListingComponent(props) {
               key={product.id}
             >
               <Image
-                className="h-3/4 w-full object-cover rounded-t-md border-b-1 border-gray-200"
+                className="h-3/4 aspect-square w-full object-contain rounded-t-md border-b-1 border-gray-200"
                 src={product.images[0]}
                 alt={product.name}
               />
@@ -55,7 +55,9 @@ export default function ProductListingComponent(props) {
                 <div className="text-sm">
                   ₹ {product.price}/{product.unit}
                 </div>
-                <div className="text-sm">{product.description}</div>
+                <div className="text-sm">
+                  {product.description?.substring(0, 20)}...
+                </div>
               </div>
             </Link>
           </div>

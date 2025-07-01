@@ -41,12 +41,12 @@ export default function LoginPage() {
           isAuthenticated: true,
         });
 
-        authStore.saveTokenToLocalStorage(token);
+        authStore.persist(user, token);
         navigate("/");
       })
       .catch((err) => {
         console.log(err);
-        setError(err.response.data.message);
+        setError(err.response?.data?.message);
       })
       .finally(() => {
         setIsLoading(false);

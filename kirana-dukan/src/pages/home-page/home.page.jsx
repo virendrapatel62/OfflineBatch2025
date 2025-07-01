@@ -6,15 +6,6 @@ import { authStore } from "../../stores/auth.store";
 import styles from "./home.module.css";
 
 export default function HomePage() {
-  const navigate = useNavigate();
-  const { isAuthenticated } = useRecoilValue(authStore);
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      navigate("/login");
-    }
-  }, [isAuthenticated]);
-
   return (
     <div className="container mx-auto">
       <div className="py-4 border-b border-gray-200 mb-4">
