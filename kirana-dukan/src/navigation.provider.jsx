@@ -46,6 +46,8 @@ export default function NaviationProvider() {
       .then((res) => {
         const user = res.data;
 
+        console.log(user);
+
         setAuthStore({
           ...authStore,
           user,
@@ -97,7 +99,12 @@ export default function NaviationProvider() {
               <DashboardPage />
             </AuthenticatedRoutes>
           }
-        />
+        >
+          <Route path="" element={<Navigate to="products" />} />
+          <Route path="products" element={<h1>Products</h1>} />
+          <Route path="orders" element={<h1>Orders</h1>} />
+          <Route path="profile" element={<h1>Profile</h1>} />
+        </Route>
       </Routes>
     </Fragment>
   );
