@@ -7,6 +7,7 @@ import { AuthFilter } from './auth.filter';
 import { JWT_SECRET, JwtStrategy } from './jwt.strategy';
 import { RolesGuard } from './roles.guard';
 import { UserModule } from '../users/user.module';
+import { SellerGuard } from './seller.guard';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { UserModule } from '../users/user.module';
     }),
   ],
   controllers: [AuthController],
-  providers: [JwtStrategy, AuthGuard, AuthFilter, RolesGuard],
-  exports: [AuthGuard, AuthFilter, RolesGuard, JwtModule],
+  providers: [JwtStrategy, AuthGuard, AuthFilter, RolesGuard, SellerGuard],
+  exports: [AuthGuard, AuthFilter, RolesGuard, JwtModule, SellerGuard],
 })
 export class AuthModule {}

@@ -7,12 +7,13 @@ import { PrismaService } from '../prisma/prisma.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { QueryProductDto } from './dto/query-product.dto';
+import { User } from 'generated/prisma';
 
 @Injectable()
 export class ProductsService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(data: CreateProductDto) {
+  async create(data: CreateProductDto, user: User) {
     const existingProduct = await this.prisma.product.findFirst({
       where: {
         name: data.name,
@@ -21,6 +22,7 @@ export class ProductsService {
         discount: data.discount || 0,
         unit: String(data.unit || 'pcs').toUpperCase(),
         category: data.category || 'other',
+        userId: user.id,
       },
     });
 
@@ -38,6 +40,7 @@ export class ProductsService {
         discount: data.discount || 0,
         unit: String(data.unit || 'pcs').toUpperCase(),
         category: data.category || 'other',
+        userId: user.id,
       },
     });
   }

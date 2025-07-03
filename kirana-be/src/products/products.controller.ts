@@ -8,11 +8,18 @@ import {
   ParseIntPipe,
   Post,
   Query,
+  Req,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiOperation, ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { CreateProductDto } from './dto/create-product.dto';
 import { QueryProductDto } from './dto/query-product.dto';
 import { ProductsService } from './products.service';
+import { SellerGuard } from 'src/auth/seller.guard';
+import { Request } from 'express';
+import { CurrentUser } from 'src/auth/current-user.decorator';
+import {} from '@prisma/client';
+import { User } from 'generated/prisma';
 
 @ApiTags('products')
 @Controller('products')
@@ -22,8 +29,12 @@ export class ProductsController {
   @Post()
   @HttpCode(HttpStatus.CREATED)
   @ApiOperation({ summary: 'Create a new product' })
-  create(@Body() createProductDto: CreateProductDto) {
-    return this.productsService.create(createProductDto);
+  @UseGuards(SellerGuard)
+  create(
+    @Body() createProductDto: CreateProductDto,
+    @CurrentUser() user: User,
+  ) {
+    return this.productsService.create(createProductDto, user);
   }
 
   @Get()

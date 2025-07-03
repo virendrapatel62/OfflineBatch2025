@@ -32,6 +32,7 @@ model User {
   isActive  Boolean @default(true) @map("is_active")
 
   products Product[] @relation("products")
+  orders Order[] @relation("orders")
 }
 
 
@@ -81,6 +82,8 @@ model Order {
   updatedAt DateTime @updatedAt @map("updated_at")
 
   items OrderItem[]
+
+  user User @relation("orders", fields: [userId], references: [id])
 }
 
 model OrderItem {

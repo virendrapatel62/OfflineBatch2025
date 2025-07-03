@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { OrderStatus } from 'generated/prisma';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateOrderDto } from './order.dto';
@@ -8,6 +12,36 @@ export class OrderService {
   constructor(private readonly prisma: PrismaService) {}
 
   async getOrders(userId: number) {
+    const user = await this.prisma.user.findUnique({
+      where: {
+        id: userId,
+      },
+    });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    if (user.role?.toUpperCase() === 'SELLER') {
+      const sellerOrders = await this.prisma.order.findMany({
+        where: {
+          items: {
+            some: {
+              product: {
+                userId: user.id,
+              },
+            },
+          },
+        },
+        include: {
+          items: true,
+          user: true,
+        },
+      });
+
+      return sellerOrders;
+    }
+
     return this.prisma.order.findMany({
       where: {
         userId,
